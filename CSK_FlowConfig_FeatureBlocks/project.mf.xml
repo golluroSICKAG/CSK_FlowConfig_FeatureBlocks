@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest>
+    <application name="CSK_FlowConfig_FeatureBlocks">
+        <crown name="CSK_FlowConfig_FeatureBlocks">
+            <desc>This is an automatically generated CROWN (description not necessary).</desc>
+            <serves/>
+        </crown>
+        <crown name="FeatureBlocks_FC">
+            <trait>released</trait>
+            <desc>Crown to provide CSK_FlowConfig relevant features.</desc>
+            <serves/>
+            <crown name="JSON">
+                <trait>released</trait>
+                <desc>Set source events of incoming data to create JSON content.</desc>
+                <serves>
+                    <function name="create">
+                        <trait>released</trait>
+                        <desc>Internally used CSK_FlowConfig create function.</desc>
+                        <param desc="Key for values of source1." multiplicity="1" name="Key1" type="string"/>
+                        <param desc="Key for values of source2." multiplicity="?" name="Key2" type="string"/>
+                        <param desc="Key for values of source3." multiplicity="?" name="Key3" type="string"/>
+                        <param desc="Key for values of source4." multiplicity="?" name="Key4" type="string"/>
+                        <return desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
+                    </function>
+                    <function name="json">
+                        <include>data-flow</include>
+                        <desc>Set source events of incoming data to create JSON content.</desc>
+                        <param desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
+                        <param desc="Optional source of trigger event to create JSON file.&#10;If not used, it will push JSON content with every single value update." multiplicity="?" name="trigger" type="string"/>
+                        <param desc="Source of value1.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source1" type="string"/>
+                        <param desc="Source of value2.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source2" type="string"/>
+                        <param desc="Source of value3.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source3" type="string"/>
+                        <param desc="Source of value4.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source4" type="string"/>
+                        <return desc="'CSK_FlowConfigFeatureBlocks.OnNewJSON_[ID]'&#10;&#10;Parameter:&#10;1: JSON (STRING)" multiplicity="1" name="OnNewJSON" type="string"/>
+                    </function>
+                </serves>
+            </crown>
+        </crown>
+        <crown name="CSK_FlowConfigFeatureBlocks">
+            <trait>released</trait>
+            <desc>SensorApp to provide features as blocks for the CSK FlowConfig feature. +
+Run this application in parallel to the CSK_Module_FlowConfig. Features provided by this SensorApp will be shown as blocks within the CSK_Module_FlowConfig UI. +
+Regarding further information, please read the CSK documentation provided on https://github.com/SICKAppSpaceCodingStarterKit.</desc>
+            <serves>
+                <event name="OnNewJSON_ID">
+                    <trait>released</trait>
+                    <desc>Example of dynamically created event to notify created JSON content. +
+ID will be replaced by an internal created identifier (e.g. "OnNewJSON_3"). +
+INFO: Other modules can check via "Script.isServedAsEvent" if event exists.</desc>
+                    <param desc="JSON content." multiplicity="1" name="data" type="string"/>
+                </event>
+                <function name="addJSONBlock">
+                    <desc>Function to add / extend a FlowConfig block to create JSON content out of received data.</desc>
+                    <param desc="Identifier of instance." multiplicity="1" name="instance" type="string"/>
+                    <param desc="Key values" multiplicity="+" name="data" type="string"/>
+                    <param desc="Name of source events." multiplicity="+" name="events" type="string"/>
+                    <param desc="Optional event name to trigger creation of JSON content." multiplicity="?" name="trigger" type="string"/>
+                </function>
+            </serves>
+        </crown>
+        <meta key="author">SICK AG</meta>
+        <meta key="version">1.0.0</meta>
+        <meta key="priority">low</meta>
+        <meta key="copy-protected">false</meta>
+        <meta key="read-protected">false</meta>
+        <meta key="LuaLoadAllEngineAPI">false</meta>
+        <entry default="CSK_FlowConfig_FeatureBlocks.lua" path="scripts"/>
+    </application>
+</manifest>
