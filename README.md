@@ -1,6 +1,7 @@
 # CSK_FlowConfig_FeatureBlocks
 
 SensorApp to provide specific features as blocks to be used within the CSK FlowConfig feature.  
+The focus here is on features that receive data content, process the data and forward the results via events.  
 Features within this SensorApp do not provide a UI itself. But they can be configured via the CSK_Module_FlowConfig UI and their setup can be saved within the persistent data of the CSK_Module_FlowConfig as well.  
 This makes it possible to focus on the block features and to keep the code to a minimum as most CSK relevant code is not needed in this SensorApp.  
 
