@@ -42,17 +42,22 @@ _G.logHandle:applyConfig()
 -- Only to prevent WARNING messages, but these are only examples/placeholders for dynamically created events/functions
 ----------------------------------------------------------------
 Script.serveEvent("CSK_FlowConfigFeatureBlocks.OnNewJSON_ID", "FeatureBlocks_OnNewJSON_ID")
+Script.serveEvent("CSK_FlowConfigFeatureBlocks.OnNewCollectedData_ID", "FeatureBlocks_OnNewCollectedData_ID")
 ----------------------------------------------------------------
 
 -- Read in code to provide FlowConfig blocks
 ----------------------------------------------------------------
 require('FlowConfig/FeatureBlocks/FlowConfig/FeatureBlocks_JSON')
+require('FlowConfig/FeatureBlocks/FlowConfig/FeatureBlocks_CollectData')
+require('FlowConfig/FeatureBlocks/FlowConfig/FeatureBlocks_Log')
 -- ...
 ----------------------------------------------------------------
 
 -- Load script for JSON block
 ----------------------------------------------------------------
 Script.startScript('CSK_FlowConfig_FeatureBlocks_JSON')
+Script.startScript('CSK_FlowConfig_FeatureBlocks_CollectData')
+Script.startScript('CSK_FlowConfig_FeatureBlocks_Log')
 -- ...
 ----------------------------------------------------------------
 
