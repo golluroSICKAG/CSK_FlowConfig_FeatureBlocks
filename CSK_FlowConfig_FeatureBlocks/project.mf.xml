@@ -8,6 +8,13 @@
         <crown name="FeatureBlocks_FC">
             <trait>released</trait>
             <desc>Crown to provide CSK_FlowConfig relevant features.</desc>
+            <enum name="LogLevel" trait="released">
+                <desc>Log level for FlowConfig feature.</desc>
+                <item desc="FINE" name="FINE">FINE</item>
+                <item desc="INFO" name="INFO">INFO</item>
+                <item desc="SEVERE" name="SEVERE">SEVERE</item>
+                <item desc="WARNING" name="WARNING">WARNING</item>
+            </enum>
             <serves/>
             <crown name="JSON">
                 <trait>released</trait>
@@ -20,6 +27,8 @@
                         <param desc="Key for values of source2." multiplicity="?" name="Key2" type="string"/>
                         <param desc="Key for values of source3." multiplicity="?" name="Key3" type="string"/>
                         <param desc="Key for values of source4." multiplicity="?" name="Key4" type="string"/>
+                        <param desc="Key for values of source5." multiplicity="?" name="Key5" type="string"/>
+                        <param desc="Key for values of source6." multiplicity="?" name="Key6" type="string"/>
                         <return desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
                     </function>
                     <function name="json">
@@ -31,7 +40,48 @@
                         <param desc="Source of value2.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source2" type="string"/>
                         <param desc="Source of value3.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source3" type="string"/>
                         <param desc="Source of value4.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source4" type="string"/>
+                        <param desc="Source of value5.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source5" type="string"/>
+                        <param desc="Source of value6.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source6" type="string"/>
                         <return desc="'CSK_FlowConfigFeatureBlocks.OnNewJSON_[ID]'&#10;&#10;Parameter:&#10;1: JSON (STRING)" multiplicity="1" name="OnNewJSON" type="string"/>
+                    </function>
+                </serves>
+            </crown>
+            <crown name="CollectData">
+                <trait>released</trait>
+                <desc>Collect data multiple times to forward it in a single event.</desc>
+                <serves>
+                    <function name="create">
+                        <trait>released</trait>
+                        <desc>Internally used CSK_FlowConfig create function.</desc>
+                        <param desc="Maximum counter value of received data before forwarding it." multiplicity="1" name="counter" type="int"/>
+                        <param desc="Separator for collected data." multiplicity="1" name="separator" type="string"/>
+                        <return desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
+                    </function>
+                    <function name="collectData">
+                        <include>data-flow</include>
+                        <desc>Collect data multiple times to forward it in a single event.</desc>
+                        <param desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
+                        <param desc="Optional source of trigger event to forward collected data.&#10;If not used, it will push the collected data after it received data &gt;= counter." multiplicity="?" name="trigger" type="string"/>
+                        <param desc="Source of data to collect.&#10;&#10;Parameter:&#10;1: Data (STRING)" multiplicity="1" name="source" type="string"/>
+                        <return desc="'CSK_FlowConfigFeatureBlocks.OnNewResult[ID]'&#10;&#10;Parameter:&#10;1: Data (STRING)" multiplicity="1" name="OnNewCollectedData" type="string"/>
+                    </function>
+                </serves>
+            </crown>
+            <crown name="Log">
+                <trait>released</trait>
+                <desc>Debug blog to log received content.</desc>
+                <serves>
+                    <function name="create">
+                        <trait>released</trait>
+                        <desc>Internally used CSK_FlowConfig create function.</desc>
+                        <param desc="Set log level to forwarded value." multiplicity="1" name="Level" ref="FeatureBlocks_FC.LogLevel" type="enum"/>
+                        <return desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
+                    </function>
+                    <function name="log">
+                        <include>data-flow</include>
+                        <desc>Set source events of incoming data to create JSON content.</desc>
+                        <param desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
+                        <param desc="Source of value1.&#10;&#10;Parameter:&#10;1: data (AUTO)" multiplicity="?" name="source1" type="string"/>
                     </function>
                 </serves>
             </crown>
@@ -49,6 +99,13 @@ ID will be replaced by an internal created identifier (e.g. "OnNewJSON_3"). +
 INFO: Other modules can check via "Script.isServedAsEvent" if event exists.</desc>
                     <param desc="JSON content." multiplicity="1" name="data" type="string"/>
                 </event>
+                <event name="OnNewCollectedData_ID">
+                    <trait>released</trait>
+                    <desc>Example of dynamically created event to notify collected data content. +
+ID will be replaced by an internal created identifier (e.g. "OnNewCollectedData_3"). +
+INFO: Other modules can check via "Script.isServedAsEvent" if event exists.</desc>
+                    <param desc="Data content." multiplicity="1" name="data" type="string"/>
+                </event>
                 <function name="addJSONBlock">
                     <desc>Function to add / extend a FlowConfig block to create JSON content out of received data.</desc>
                     <param desc="Identifier of instance." multiplicity="1" name="instance" type="string"/>
@@ -56,10 +113,24 @@ INFO: Other modules can check via "Script.isServedAsEvent" if event exists.</des
                     <param desc="Name of source events." multiplicity="+" name="events" type="string"/>
                     <param desc="Optional event name to trigger creation of JSON content." multiplicity="?" name="trigger" type="string"/>
                 </function>
+                <function name="addDataCollectorBlock">
+                    <desc>Function to add / extend a FlowConfig block to collect data.</desc>
+                    <param desc="Identifier of instance." multiplicity="1" name="instance" type="string"/>
+                    <param desc="Name of source events." multiplicity="1" name="source" type="string"/>
+                    <param desc="Maximum value of counter to collect data before forwarding them." multiplicity="1" name="counter" type="int"/>
+                    <param desc="Separator to separate data." multiplicity="1" name="separator" type="string"/>
+                    <param desc="Optional event name to forward data collected so far." multiplicity="?" name="trigger" type="string"/>
+                </function>
+                <function name="addLogBlock">
+                    <desc>Function to add a new logger.</desc>
+                    <param desc="Instance of block." multiplicity="1" name="instance" type="string"/>
+                    <param desc="Level to log values." multiplicity="1" name="level" type="string"/>
+                    <param desc="Source event providing the data." multiplicity="1" name="event" type="string"/>
+                </function>
             </serves>
         </crown>
         <meta key="author">SICK AG</meta>
-        <meta key="version">1.0.0</meta>
+        <meta key="version">1.1.0</meta>
         <meta key="priority">low</meta>
         <meta key="copy-protected">false</meta>
         <meta key="read-protected">false</meta>

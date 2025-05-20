@@ -63,7 +63,6 @@ local function addJSONBlock(instance, data, events, trigger)
       -- Create internally used function to update received values
       local function setParameter(value)
         parameters[instance]['values'][tonumber(key)] = value
-        --print("Set value " .. tostring(i) .. " of instance identifier " .. tostring(instance) .. " to " .. tostring(value))
         if parameters[instance]['trigger'] == '' then
           createJSON(instance)
         end

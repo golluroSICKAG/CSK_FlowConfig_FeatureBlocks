@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
 <meta name="author" content="SICK AG">
-<title>Documentation - CSK_FlowConfig_FeatureBlocks 1.0.0</title>
+<title>Documentation - CSK_FlowConfig_FeatureBlocks 1.1.0</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 /* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
@@ -615,11 +615,11 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Documentation - CSK_FlowConfig_FeatureBlocks 1.0.0</h1>
+<h1>Documentation - CSK_FlowConfig_FeatureBlocks 1.1.0</h1>
 <div class="details">
 <span id="author" class="author">SICK AG</span><br>
-<span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2025-01-22</span>
+<span id="revnumber">version 1.1.0,</span>
+<span id="revdate">2025-05-20</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -639,11 +639,14 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 <li><a href="#_overview_2">Overview</a></li>
 <li><a href="#_functions">Functions</a>
 <ul class="sectlevel4">
+<li><a href="#API:Function:CSK_FlowConfigFeatureBlocks.addDataCollectorBlock"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-function">addDataCollectorBlock()</span></a></li>
 <li><a href="#API:Function:CSK_FlowConfigFeatureBlocks.addJSONBlock"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-function">addJSONBlock()</span></a></li>
+<li><a href="#API:Function:CSK_FlowConfigFeatureBlocks.addLogBlock"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-function">addLogBlock()</span></a></li>
 </ul>
 </li>
 <li><a href="#_events">Events</a>
 <ul class="sectlevel4">
+<li><a href="#API:Event:CSK_FlowConfigFeatureBlocks.OnNewCollectedData_ID"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-event">OnNewCollectedData_ID</span></a></li>
 <li><a href="#API:Event:CSK_FlowConfigFeatureBlocks.OnNewJSON_ID"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-event">OnNewJSON_ID</span></a></li>
 </ul>
 </li>
@@ -651,15 +654,27 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 </li>
 <li><a href="#API:Crown:FeatureBlocks_FC"><span class="api-crown">FeatureBlocks_FC</span></a>
 <ul class="sectlevel3">
-<li><a href="#_short_description_5">Short description</a></li>
+<li><a href="#_short_description_8">Short description</a></li>
 <li><a href="#_overview_3">Overview</a></li>
+</ul>
+</li>
+<li><a href="#API:Crown:FeatureBlocks_FC.CollectData"><span class="api-crown">FeatureBlocks_FC.CollectData</span></a>
+<ul class="sectlevel3">
+<li><a href="#_short_description_9">Short description</a></li>
+<li><a href="#_overview_4">Overview</a></li>
+<li><a href="#_functions_2">Functions</a>
+<ul class="sectlevel4">
+<li><a href="#API:Function:FeatureBlocks_FC.CollectData.collectData"><span class="breadcrumb">FeatureBlocks_FC.CollectData.</span><span class="api-function">collectData()</span></a></li>
+<li><a href="#API:Function:FeatureBlocks_FC.CollectData.create"><span class="breadcrumb">FeatureBlocks_FC.CollectData.</span><span class="api-function">create()</span></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#API:Crown:FeatureBlocks_FC.JSON"><span class="api-crown">FeatureBlocks_FC.JSON</span></a>
 <ul class="sectlevel3">
-<li><a href="#_short_description_6">Short description</a></li>
-<li><a href="#_overview_4">Overview</a></li>
-<li><a href="#_functions_2">Functions</a>
+<li><a href="#_short_description_12">Short description</a></li>
+<li><a href="#_overview_5">Overview</a></li>
+<li><a href="#_functions_3">Functions</a>
 <ul class="sectlevel4">
 <li><a href="#API:Function:FeatureBlocks_FC.JSON.create"><span class="breadcrumb">FeatureBlocks_FC.JSON.</span><span class="api-function">create()</span></a></li>
 <li><a href="#API:Function:FeatureBlocks_FC.JSON.json"><span class="breadcrumb">FeatureBlocks_FC.JSON.</span><span class="api-function">json()</span></a></li>
@@ -667,6 +682,23 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 </li>
 </ul>
 </li>
+<li><a href="#API:Crown:FeatureBlocks_FC.Log"><span class="api-crown">FeatureBlocks_FC.Log</span></a>
+<ul class="sectlevel3">
+<li><a href="#_short_description_15">Short description</a></li>
+<li><a href="#_overview_6">Overview</a></li>
+<li><a href="#_functions_4">Functions</a>
+<ul class="sectlevel4">
+<li><a href="#API:Function:FeatureBlocks_FC.Log.create"><span class="breadcrumb">FeatureBlocks_FC.Log.</span><span class="api-function">create()</span></a></li>
+<li><a href="#API:Function:FeatureBlocks_FC.Log.log"><span class="breadcrumb">FeatureBlocks_FC.Log.</span><span class="api-function">log()</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_enumerations">Enumerations</a>
+<ul class="sectlevel2">
+<li><a href="#API:Enum:FeatureBlocks_FC.LogLevel"><span class="api-enum">FeatureBlocks_FC.LogLevel</span></a></li>
 </ul>
 </li>
 </ul>
@@ -688,11 +720,11 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Version</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1.0</p></td>
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Date</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2025-01-22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2025-05-20</p></td>
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Author</p></th>
@@ -728,7 +760,13 @@ h1,h2,h3,h4,h5,h6{color:#007cc1}
 <p><a href="#API:Crown:FeatureBlocks_FC">FeatureBlocks_FC</a></p>
 </li>
 <li>
+<p><a href="#API:Crown:FeatureBlocks_FC.CollectData">FeatureBlocks_FC.CollectData</a></p>
+</li>
+<li>
 <p><a href="#API:Crown:FeatureBlocks_FC.JSON">FeatureBlocks_FC.JSON</a></p>
+</li>
+<li>
+<p><a href="#API:Crown:FeatureBlocks_FC.Log">FeatureBlocks_FC.Log</a></p>
 </li>
 </ul>
 </div>
@@ -763,7 +801,16 @@ Regarding further information, please read the CSK documentation provided on <a 
 <div class="ulist">
 <ul>
 <li>
+<p><a href="#API:Function:CSK_FlowConfigFeatureBlocks.addDataCollectorBlock">addDataCollectorBlock()</a></p>
+</li>
+<li>
 <p><a href="#API:Function:CSK_FlowConfigFeatureBlocks.addJSONBlock">addJSONBlock()</a></p>
+</li>
+<li>
+<p><a href="#API:Function:CSK_FlowConfigFeatureBlocks.addLogBlock">addLogBlock()</a></p>
+</li>
+<li>
+<p><a href="#API:Event:CSK_FlowConfigFeatureBlocks.OnNewCollectedData_ID">OnNewCollectedData_ID</a></p>
 </li>
 <li>
 <p><a href="#API:Event:CSK_FlowConfigFeatureBlocks.OnNewJSON_ID">OnNewJSON_ID</a></p>
@@ -774,15 +821,83 @@ Regarding further information, please read the CSK documentation provided on <a 
 <div class="sect3">
 <h4 id="_functions">Functions</h4>
 <div class="sect4">
-<h5 id="API:Function:CSK_FlowConfigFeatureBlocks.addJSONBlock"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-function">addJSONBlock()</span></h5>
+<h5 id="API:Function:CSK_FlowConfigFeatureBlocks.addDataCollectorBlock"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-function">addDataCollectorBlock()</span></h5>
 <div class="sect5">
 <h6 id="_short_description_3">Short description</h6>
+<div class="paragraph">
+<p>Function to add / extend a FlowConfig block to collect data.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier of instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of source events.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">counter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum value of counter to collect data before forwarding them.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">separator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separator to separate data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trigger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional event name to forward data collected so far.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">CSK_FlowConfigFeatureBlocks.addDataCollectorBlock(instance, source, counter, separator, trigger)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Function:CSK_FlowConfigFeatureBlocks.addJSONBlock"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-function">addJSONBlock()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_4">Short description</h6>
 <div class="paragraph">
 <p>Function to add / extend a FlowConfig block to create JSON content out of received data.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters">Parameters</h6>
+<h6 id="_parameters_2">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -827,10 +942,66 @@ Regarding further information, please read the CSK documentation provided on <a 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_2">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua">CSK_FlowConfigFeatureBlocks.addJSONBlock(instance, data, events, trigger)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Function:CSK_FlowConfigFeatureBlocks.addLogBlock"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-function">addLogBlock()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_5">Short description</h6>
+<div class="paragraph">
+<p>Function to add a new logger.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters_3">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance of block.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level to log values.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source event providing the data.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_3">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">CSK_FlowConfigFeatureBlocks.addLogBlock(instance, level, event)</code></pre>
 </div>
 </div>
 </div>
@@ -839,9 +1010,59 @@ Regarding further information, please read the CSK documentation provided on <a 
 <div class="sect3">
 <h4 id="_events">Events</h4>
 <div class="sect4">
+<h5 id="API:Event:CSK_FlowConfigFeatureBlocks.OnNewCollectedData_ID"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-event">OnNewCollectedData_ID</span></h5>
+<div class="sect5">
+<h6 id="_short_description_6">Short description</h6>
+<div class="paragraph">
+<p>Example of dynamically created event to notify collected data content.<br>
+ID will be replaced by an internal created identifier (e.g. "OnNewCollectedData_3").<br>
+INFO: Other modules can check via "Script.isServedAsEvent" if event exists.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_callback_arguments">Callback arguments</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data content.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_4">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewCollectedData_ID</span>(data)
+  <span class="comment">-- Do something</span>
+<span class="keyword">end</span>
+
+Script.register(<span class="string"><span class="delimiter">&quot;</span><span class="content">CSK_FlowConfigFeatureBlocks.OnNewCollectedData_ID</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">handleOnNewCollectedData_ID</span><span class="delimiter">&quot;</span></span>)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
 <h5 id="API:Event:CSK_FlowConfigFeatureBlocks.OnNewJSON_ID"><span class="breadcrumb">CSK_FlowConfigFeatureBlocks.</span><span class="api-event">OnNewJSON_ID</span></h5>
 <div class="sect5">
-<h6 id="_short_description_4">Short description</h6>
+<h6 id="_short_description_7">Short description</h6>
 <div class="paragraph">
 <p>Example of dynamically created event to notify created JSON content.<br>
 ID will be replaced by an internal created identifier (e.g. "OnNewJSON_3").<br>
@@ -849,7 +1070,7 @@ INFO: Other modules can check via "Script.isServedAsEvent" if event exists.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_callback_arguments">Callback arguments</h6>
+<h6 id="_callback_arguments_2">Callback arguments</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -876,7 +1097,7 @@ INFO: Other modules can check via "Script.isServedAsEvent" if event exists.</p>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_2">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_5">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="lua"><span class="keyword">function</span> <span class="function">handleOnNewJSON_ID</span>(data)
@@ -893,7 +1114,7 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect2">
 <h3 id="API:Crown:FeatureBlocks_FC"><span class="api-crown">FeatureBlocks_FC</span></h3>
 <div class="sect3">
-<h4 id="_short_description_5">Short description</h4>
+<h4 id="_short_description_8">Short description</h4>
 <div class="paragraph">
 <p>Crown to provide CSK_FlowConfig relevant features.</p>
 </div>
@@ -904,15 +1125,205 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </div>
 </div>
 <div class="sect2">
+<h3 id="API:Crown:FeatureBlocks_FC.CollectData"><span class="api-crown">FeatureBlocks_FC.CollectData</span></h3>
+<div class="sect3">
+<h4 id="_short_description_9">Short description</h4>
+<div class="paragraph">
+<p>Collect data multiple times to forward it in a single event.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_overview_4">Overview</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#API:Function:FeatureBlocks_FC.CollectData.collectData">collectData()</a></p>
+</li>
+<li>
+<p><a href="#API:Function:FeatureBlocks_FC.CollectData.create">create()</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_functions_2">Functions</h4>
+<div class="sect4">
+<h5 id="API:Function:FeatureBlocks_FC.CollectData.collectData"><span class="breadcrumb">FeatureBlocks_FC.CollectData.</span><span class="api-function">collectData()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_10">Short description</h6>
+<div class="paragraph">
+<p>Collect data multiple times to forward it in a single event.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters_4">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">handle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HANDLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle to internally used FlowConfig instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trigger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional source of trigger event to forward collected data.
+If not used, it will push the collected data after it received data &gt;= counter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source of data to collect.
+Parameter:
+1: Data (STRING)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_return_values">Return values</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OnNewCollectedData</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'CSK_FlowConfigFeatureBlocks.OnNewResult[ID]'
+Parameter:
+1: Data (STRING)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_6">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">OnNewCollectedData = FeatureBlocks_FC.CollectData.collectData(handle, trigger, source)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Function:FeatureBlocks_FC.CollectData.create"><span class="breadcrumb">FeatureBlocks_FC.CollectData.</span><span class="api-function">create()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_11">Short description</h6>
+<div class="paragraph">
+<p>Internally used CSK_FlowConfig create function.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters_5">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">counter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum counter value of received data before forwarding it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">separator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separator for collected data.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_return_values_2">Return values</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">handle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HANDLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle to internally used FlowConfig instance.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_7">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">handle = FeatureBlocks_FC.CollectData.create(counter, separator)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="API:Crown:FeatureBlocks_FC.JSON"><span class="api-crown">FeatureBlocks_FC.JSON</span></h3>
 <div class="sect3">
-<h4 id="_short_description_6">Short description</h4>
+<h4 id="_short_description_12">Short description</h4>
 <div class="paragraph">
 <p>Set source events of incoming data to create JSON content.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_overview_4">Overview</h4>
+<h4 id="_overview_5">Overview</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -925,17 +1336,17 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_functions_2">Functions</h4>
+<h4 id="_functions_3">Functions</h4>
 <div class="sect4">
 <h5 id="API:Function:FeatureBlocks_FC.JSON.create"><span class="breadcrumb">FeatureBlocks_FC.JSON.</span><span class="api-function">create()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_7">Short description</h6>
+<h6 id="_short_description_13">Short description</h6>
 <div class="paragraph">
 <p>Internally used CSK_FlowConfig create function.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_2">Parameters</h6>
+<h6 id="_parameters_6">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -976,11 +1387,23 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key for values of source4.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key for values of source5.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key for values of source6.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_return_values">Return values</h6>
+<h6 id="_return_values_3">Return values</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1007,10 +1430,10 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_3">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_8">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua">handle = FeatureBlocks_FC.JSON.create(Key1, Key2, Key3, Key4)</code></pre>
+<pre class="CodeRay highlight"><code data-lang="lua">handle = FeatureBlocks_FC.JSON.create(Key1, Key2, Key3, Key4, Key5, Key6)</code></pre>
 </div>
 </div>
 </div>
@@ -1018,13 +1441,13 @@ Script.register(<span class="string"><span class="delimiter">&quot;</span><span 
 <div class="sect4">
 <h5 id="API:Function:FeatureBlocks_FC.JSON.json"><span class="breadcrumb">FeatureBlocks_FC.JSON.</span><span class="api-function">json()</span></h5>
 <div class="sect5">
-<h6 id="_short_description_8">Short description</h6>
+<h6 id="_short_description_14">Short description</h6>
 <div class="paragraph">
 <p>Set source events of incoming data to create JSON content.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_parameters_3">Parameters</h6>
+<h6 id="_parameters_7">Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1086,11 +1509,27 @@ Parameter:
 Parameter:
 1: data (AUTO)</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source of value5.
+Parameter:
+1: data (AUTO)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source of value6.
+Parameter:
+1: data (AUTO)</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_return_values_2">Return values</h6>
+<h6 id="_return_values_4">Return values</h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1119,23 +1558,234 @@ Parameter:
 </table>
 </div>
 <div class="sect5">
-<h6 id="_sample_auto_generated_4">Sample (auto-generated)</h6>
+<h6 id="_sample_auto_generated_9">Sample (auto-generated)</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="lua">OnNewJSON = FeatureBlocks_FC.JSON.json(handle, trigger, source1, source2, source3, source4)</code></pre>
+<pre class="CodeRay highlight"><code data-lang="lua">OnNewJSON = FeatureBlocks_FC.JSON.json(handle, trigger, source1, source2, source3, source4, source5, source6)</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="API:Crown:FeatureBlocks_FC.Log"><span class="api-crown">FeatureBlocks_FC.Log</span></h3>
+<div class="sect3">
+<h4 id="_short_description_15">Short description</h4>
+<div class="paragraph">
+<p>Debug blog to log received content.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_overview_6">Overview</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#API:Function:FeatureBlocks_FC.Log.create">create()</a></p>
+</li>
+<li>
+<p><a href="#API:Function:FeatureBlocks_FC.Log.log">log()</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_functions_4">Functions</h4>
+<div class="sect4">
+<h5 id="API:Function:FeatureBlocks_FC.Log.create"><span class="breadcrumb">FeatureBlocks_FC.Log.</span><span class="api-function">create()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_16">Short description</h6>
+<div class="paragraph">
+<p>Internally used CSK_FlowConfig create function.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters_8">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ENUM<br>
+<a href="#API:Enum:FeatureBlocks_FC.LogLevel">FeatureBlocks_FC.LogLevel</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set log level to forwarded value.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_return_values_5">Return values</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">handle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HANDLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle to internally used FlowConfig instance.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_10">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">handle = FeatureBlocks_FC.Log.create(Level)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="API:Function:FeatureBlocks_FC.Log.log"><span class="breadcrumb">FeatureBlocks_FC.Log.</span><span class="api-function">log()</span></h5>
+<div class="sect5">
+<h6 id="_short_description_17">Short description</h6>
+<div class="paragraph">
+<p>Set source events of incoming data to create JSON content.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_parameters_9">Parameters</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Multiplicity</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">handle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HANDLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle to internally used FlowConfig instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source of value1.
+Parameter:
+1: data (AUTO)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_sample_auto_generated_11">Sample (auto-generated)</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="lua">FeatureBlocks_FC.Log.log(handle, source1)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enumerations">Enumerations</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">F</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#API:Enum:FeatureBlocks_FC.LogLevel">FeatureBlocks_FC.LogLevel</a></p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="API:Enum:FeatureBlocks_FC.LogLevel"><span class="api-enum">FeatureBlocks_FC.LogLevel</span></h3>
+<div class="paragraph">
+<p>Log level for FlowConfig feature.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Items</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Value</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>FINE</pre></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FINE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FINE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>INFO</pre></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INFO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INFO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>SEVERE</pre></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SEVERE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SEVERE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>WARNING</pre></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WARNING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WARNING</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0.0<br>
-Last updated 2025-01-22 09:42:01 +0100
+Version 1.1.0<br>
+Last updated 2025-05-20 13:55:19 +0200
 </div>
 </div>
 <script type="text/javascript">

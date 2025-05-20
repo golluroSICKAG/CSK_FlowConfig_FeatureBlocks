@@ -15,7 +15,9 @@ For further information check out the [documentation](https://raw.githack.com/SI
 Tested on:
 |Device|Firmware|Module version
 |--|--|--|
+|SIM1012|V2.4.2|V1.1.0|
 |SIM1012|V2.4.2|V1.0.0|
+|SICK AppEngine|V1.7.0|V1.1.0|
 |SICK AppEngine|V1.7.0|V1.0.0|
 
 This SensorApp is part of the SICK AppSpace Coding Starter Kit developing approach.  
