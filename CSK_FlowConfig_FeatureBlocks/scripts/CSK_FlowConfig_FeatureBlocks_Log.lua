@@ -19,8 +19,12 @@ local function addLogBlock(instance, level, event)
 
   parameters[instance] = {}
   local function logContent(value)
-    if level == 'INFO' then
+    if level == 'FINE' then
+      _G.logger:fine(tostring(value))
+    elseif level == 'INFO' then
       _G.logger:info(tostring(value))
+    elseif level == 'SEVERE' then
+      _G.logger:severe(tostring(value))
     else
       _G.logger:warning(tostring(value))
     end

@@ -8,6 +8,13 @@
         <crown name="FeatureBlocks_FC">
             <trait>released</trait>
             <desc>Crown to provide CSK_FlowConfig relevant features.</desc>
+            <enum name="LogLevel" trait="released">
+                <desc>Log level for FlowConfig feature.</desc>
+                <item desc="FINE" name="FINE">FINE</item>
+                <item desc="INFO" name="INFO">INFO</item>
+                <item desc="SEVERE" name="SEVERE">SEVERE</item>
+                <item desc="WARNING" name="WARNING">WARNING</item>
+            </enum>
             <serves/>
             <crown name="JSON">
                 <trait>released</trait>
@@ -67,7 +74,7 @@
                     <function name="create">
                         <trait>released</trait>
                         <desc>Internally used CSK_FlowConfig create function.</desc>
-                        <param desc="Set log level to forwarded value." multiplicity="1" name="Level" ref="Log.Level" type="enum"/>
+                        <param desc="Set log level to forwarded value." multiplicity="1" name="Level" ref="FeatureBlocks_FC.LogLevel" type="enum"/>
                         <return desc="Handle to internally used FlowConfig instance." multiplicity="1" name="handle" type="handle"/>
                     </function>
                     <function name="log">
