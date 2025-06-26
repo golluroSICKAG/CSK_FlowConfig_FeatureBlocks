@@ -36,8 +36,6 @@ local function createJSON(instance)
   end
   fullString = fullString .. '}'
   Script.notifyEvent(parameters[instance]['resultEvent'], fullString)
-
-  --print(fullString)
 end
 
 local function addJSONBlock(instance, data, events, trigger)
